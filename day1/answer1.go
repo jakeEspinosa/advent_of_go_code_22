@@ -52,33 +52,19 @@ func SortAndReturnTotal(intArray []int) int {
 	return total
 }
 
-func GetMostCalories(fileLines []string) int {
-	largest := 0
-	currentSum := 0
-	for i := 0; i < len(fileLines); i++ {
-		if fileLines[i] == "" {
-			if largest < currentSum {
-				largest = currentSum
-			}
-			currentSum = 0
-		} else {
-			lineAmount, err := strconv.Atoi(fileLines[i])
-			if err != nil {
-				panic(err)
-			}
-			currentSum = currentSum + lineAmount
-		}
-	}
-	return largest
+func GetMostCalories(intArray []int) int {
+	return intArray[1]
 }
 
 func main() {
 	fmt.Printf("Reading input.txt...\n\n")
+
 	lines := ReadFileLines("input.txt")
-	mostCals := strconv.Itoa(GetMostCalories(lines))
+	sums := SumStringArray(lines)
+
+	mostCals := strconv.Itoa(GetMostCalories(sums))
 	fmt.Printf("The elf carrying the most calories has:\n" + mostCals + " calories\n\n")
 
-	sums := SumStringArray(lines)
 	topThreeTotal := strconv.Itoa(SortAndReturnTotal(sums))
 	fmt.Printf("The total of the top three elves is:\n" + topThreeTotal + "\n")
 }
