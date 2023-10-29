@@ -48,5 +48,8 @@ func main() {
 	fmt.Printf("Reading input.txt...\n\n")
 	lines := ReadFileLines("input.txt")
 	mostCals := strconv.Itoa(GetMostCalories(lines))
-	fmt.Printf("The elf carrying the most calories has:\n" + mostCals + " calories\n")
+	fmt.Printf("The elf carrying the most calories has:\n" + mostCals + " calories\n\n")
+	topThree := GetTopThree(lines)
+
+	fmt.Printf("The top three elves are carrying: " + strconv.Itoa(topThree) + "\n")
 }
