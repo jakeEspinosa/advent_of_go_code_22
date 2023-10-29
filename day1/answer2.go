@@ -8,16 +8,23 @@ import (
 // sort the int arr in reverse order
 // get the first 3 elements, sum them, and return
 
-func ConvertStringArrayToIntArray(stringArray []string) []int {
-	var intSlice []int
-	for i := 0; i < len(stringArray); i++ {
-		newInt, err := strconv.Atoi(stringArray[i])
-		if err != nil {
-			panic(err)
-		}
+func SumStringArray(stringArray []string) []int {
+	var result []int
 
-		intSlice = append(intSlice, newInt)
+	currentSum := 0
+	for i := 0; i < len(stringArray); i++ {
+		if stringArray[i] == "" {
+			result = append(result, currentSum)
+			currentSum = 0
+
+		} else {
+			lineAmount, err := strconv.Atoi(stringArray[i])
+			if err != nil {
+				panic(err)
+			}
+			currentSum += lineAmount
+		}
 	}
 
-	return intSlice
+	return result
 }
