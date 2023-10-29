@@ -49,4 +49,8 @@ func main() {
 	lines := ReadFileLines("input.txt")
 	mostCals := strconv.Itoa(GetMostCalories(lines))
 	fmt.Printf("The elf carrying the most calories has:\n" + mostCals + " calories\n\n")
+
+	sums := SumStringArray(lines)
+	topThreeTotal := strconv.Itoa(SortAndReturnTotal(sums))
+	fmt.Printf("The total of the top three elves is:\n" + topThreeTotal + "\n")
 }

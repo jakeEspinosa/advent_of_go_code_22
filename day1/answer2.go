@@ -1,12 +1,9 @@
 package main
 
 import (
+	"sort"
 	"strconv"
 )
-
-// Strategy:
-// sort the int arr in reverse order
-// get the first 3 elements, sum them, and return
 
 func SumStringArray(stringArray []string) []int {
 	var result []int
@@ -27,4 +24,10 @@ func SumStringArray(stringArray []string) []int {
 	}
 
 	return result
+}
+
+func SortAndReturnTotal(intArray []int) int {
+	sort.Sort(sort.Reverse(sort.IntSlice(intArray)))
+	total := intArray[0] + intArray[1] + intArray[2]
+	return total
 }
